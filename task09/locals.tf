@@ -7,6 +7,8 @@ locals {
         {
           port = 80
           type = "Http"
+          port = 443
+          type = "Https"
         }
       ]
       target_fqdns = [var.aks_loadbalancer_ip]
