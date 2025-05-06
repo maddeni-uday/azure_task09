@@ -50,15 +50,6 @@ data "azurerm_public_ip" "firewall_pip" {
   resource_group_name = var.rg_name
 }
 
-resource "azurerm_route" "fwpip_to_internet" {
-  name                = var.fwpip
-  resource_group_name = var.rg_name
-  route_table_name    = azurerm_route_table.afw_route_table.name
-  address_prefix      = "${data.azurerm_public_ip.firewall_pip.ip_address}/32" # Firewall Public IP
-  next_hop_type       = "Internet"
-}
-
-
 resource "azurerm_subnet_route_table_association" "subnet_assoc" {
   subnet_id      = data.azurerm_subnet.aks_subnet.id
   route_table_id = azurerm_route_table.afw_route_table.id

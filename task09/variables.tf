@@ -26,6 +26,7 @@ variable "subnet_space" {
   description = "value"
   type        = string
 }
+
 variable "aks_loadbalancer_ip" {
   description = "value"
   type        = string

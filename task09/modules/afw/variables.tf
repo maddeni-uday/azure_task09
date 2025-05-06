@@ -33,10 +33,10 @@ variable "subnet_space" {
   type        = string
 }
 
-# variable "aks_loadbalancer_ip" {
-#   description = "Public IP of AKS Load Balancer"
-#   type        = string
-# }
+variable "aks_loadbalancer_ip" {
+  description = "Public IP of AKS Load Balancer"
+  type        = string
+}
 
 variable "fwpip" {
   description = "value"
