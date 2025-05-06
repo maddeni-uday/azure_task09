@@ -40,7 +40,7 @@ variable "subnet_space" {
 
 variable "fwpip" {
   description = "value"
-  type = string
+  type        = string
 }
 
 
