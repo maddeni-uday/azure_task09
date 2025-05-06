@@ -1,39 +1,44 @@
-variable "unique_id" {
-  description = "value"
+variable "resource_group_name" {
   type        = string
+  description = "Name of the existing resource group"
 }
+
 variable "location" {
-  description = "value"
   type        = string
+  description = "Azure region for resources"
 }
-variable "rg_name" {
-  description = "value"
-  type        = string
-}
+
 variable "vnet_name" {
-  description = "value"
   type        = string
+  description = "Name of the existing virtual network"
 }
-variable "vnet_space" {
-  description = "value"
+
+variable "vnet_address_space" {
   type        = string
+  description = "Address space of the existing VNet"
 }
-variable "subnet_name" {
-  description = "value"
+
+variable "aks_subnet_name" {
   type        = string
+  description = "Name of the existing AKS subnet"
 }
-variable "subnet_space" {
-  description = "value"
+
+variable "aks_subnet_address_space" {
   type        = string
+  description = "Address space of the AKS subnet"
 }
 
 variable "aks_loadbalancer_ip" {
-  description = "value"
   type        = string
+  description = "Public IP of AKS load balancer"
 }
 
-
-variable "fwpip_to_internet" {
-  description = "value"
+variable "environment" {
   type        = string
+  description = "Environment tag value"
+}
+
+variable "project_prefix" {
+  type        = string
+  description = "Prefix for resource naming"
 }

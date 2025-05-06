@@ -1,79 +1,46 @@
-variable "unique_id" {
-  description = "Unique identifier for resource naming"
+variable "resource_group_name" {
+  description = "The name of the existing resource group where resources will be deployed"
   type        = string
 }
 
 variable "location" {
-  description = "Azure region"
-  type        = string
-}
-
-variable "rg_name" {
-  description = "Resource group name"
+  description = "The Azure region where resources will be deployed"
   type        = string
 }
 
 variable "vnet_name" {
-  description = "Virtual Network name"
+  description = "The name of the existing virtual network"
   type        = string
 }
 
-variable "vnet_space" {
-  description = "Virtual Network address space"
+variable "vnet_address_space" {
+  description = "The address space of the existing virtual network"
   type        = string
 }
 
-variable "subnet_name" {
-  description = "Subnet name for AKS"
+variable "aks_subnet_name" {
+  description = "The name of the existing AKS subnet"
   type        = string
 }
 
-variable "subnet_space" {
-  description = "Subnet address space for AKS"
+variable "aks_subnet_address_space" {
+  description = "The address space of the existing AKS subnet"
   type        = string
 }
 
 variable "aks_loadbalancer_ip" {
-  description = "Public IP of AKS Load Balancer"
+  description = "The public IP address of the existing AKS load balancer"
   type        = string
 }
 
-variable "fwpip" {
-  description = "value"
+variable "environment" {
+  description = "The environment tag to apply to resources"
   type        = string
+  default     = "mod9"
 }
 
-
-variable "application_rules" {
-  type = list(object({
-    name             = string
-    source_addresses = list(string)
-    protocols = list(object({
-      port = number
-      type = string
-    }))
-    target_fqdns = list(string)
-  }))
-}
-
-variable "network_rules" {
-  type = list(object({
-    name                  = string
-    source_addresses      = list(string)
-    destination_addresses = list(string)
-    destination_ports     = list(string)
-    protocols             = list(string)
-  }))
-}
-
-variable "nat_rules" {
-  type = list(object({
-    name                  = string
-    source_addresses      = list(string)
-    destination_addresses = list(string)
-    destination_ports     = list(string)
-    protocols             = list(string)
-    translated_address    = string
-    translated_port       = string
-  }))
+variable "project_prefix" {
+  description = "The naming prefix for all resources"
+  type        = string
+  default     = "cmtr-93253787"
 }
